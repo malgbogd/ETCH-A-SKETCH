@@ -39,20 +39,23 @@ color: white;
     margin: auto;
     width: 500px;
     height: 300px;
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-    background-color: transparent;
+    border-style: none;
+    background-color: whitesmoke;
     }
 
-.skchDivR, .skchDivC {
+.row, .column {
     display: flex;
     background-color: white;
     border-color: grey;
+    border-width: 1px;
     width: 1fr;
     height: 1fr;
 }
 
-.skchDivR:hover, .skchDivC:hover {
-    background-color: gray;
+.row:hover {
+    background-color: darkgray;
     }
+    
+.column:hover {
+    background-color: darkgray;
+}

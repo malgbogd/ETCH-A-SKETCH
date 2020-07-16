@@ -1,31 +1,22 @@
 let numOfDiv = 16;
-let newDivRow;
-let newDicCol;
-let skchBox;
 
-function addDivRow() {
-    for (let index = 0; index < numOfDiv; index++) {
-        newDivRow = document.createElement('div');
-        newDivRow.classList.add('skchDivR');
-        skchBox = document.querySelector('#skchPad');
-        skchBox.insertBefore('newDivRow');
-    }
-}
+function crGrid(numOfDiv) {
 
-function addDivCol() {
-    for (let index = 0; index < numOfDiv; index++) {
-        newDivRow = Array.from(document.querySelectorAll('.skchDivR'));
-        newDivCol = document.createElement('div');
-        newDivRow.classList.add('skchDivR');
-        
-        newDivRow.array.forEach(newDivRow => {
-        newDivRow.insertBefore('newDivCol');    
-        });
-    }
-    }
+    const skchBox = document.querySelector('#skchPad');
 
-    document.addEventListener('load', function create(e){
-        addDivRow();
-        addDivCol();
+    for (let i = 0; i < numOfDiv; i++) {
+        const row = document.createElement('div');
+        row.className = 'row';
+        console.log(i);
+               
+        for (let n = 0; n < numOfDiv; n++) {
+            const column = document.createElement('div');
+            column.className ='column';
+            row.appendChild(column);
+            console.log(n);
         }
-    );
+    
+        skchBox.appendChild(row);
+    } 
+}
+document.onload(crGrid(numOfDiv));
