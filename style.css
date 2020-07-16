@@ -1,0 +1,58 @@
+html {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: goldenrod;
+    
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 50px;
+    height: 40px;
+    width: 230px;
+    border-color: goldenrod;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 3px;
+    color: goldenrod;
+    font-size: 17px;
+    background-color: transparent;
+}
+
+.btn:hover {
+background-color: goldenrod;
+color: white;
+}
+
+#skchPad {
+    display: flex;
+    margin: auto;
+    width: 500px;
+    height: 300px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    background-color: transparent;
+    }
+
+.skchDivR, .skchDivC {
+    display: flex;
+    background-color: white;
+    border-color: grey;
+    width: 1fr;
+    height: 1fr;
+}
+
+.skchDivR:hover, .skchDivC:hover {
+    background-color: gray;
+    }
