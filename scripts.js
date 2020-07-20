@@ -1,6 +1,9 @@
 let numOfDiv;
 const skchBox = document.querySelector('#skchPad');
 const resetBtn = document.querySelector('.btn')
+const colorBtn = document.querySelector('.btnRnd')
+let randomColor = 'black'
+
 
 
 function crGrid(numOfDiv) {
@@ -26,7 +29,7 @@ function crGrid(numOfDiv) {
                 row.style.backgroundColor = 'gray';
             }
             function turnBlack(){
-                row.style.backgroundColor = 'black';
+                row.style.backgroundColor = randomColor;
                 row.removeEventListener('mouseover', turnGray);
                 row.removeEventListener('mouseleave', turnBlank);
             }
@@ -42,26 +45,53 @@ function crGrid(numOfDiv) {
 }
 
 function getNewGrid () {
-    numOfDiv = Number(prompt('How many cells should there be in lines and columns from 0 to 400?'));
-    console.log(numOfDiv);
-    console.log(typeof(numOfDiv));
-    return numOfDiv;
-}
-
-function checkNewGrid () {
-    if (numOfDiv < 0 || numOfDiv > 400);
-    numOfDiv = Number(prompt('It was suppose to be number between 0 to 400! Pick new one.'));
+    numOfDiv = Number(prompt('How many cells should there be in lines and columns from 0 to 120?'));
     
     return numOfDiv;
 }
 
-function drawNewGrid() {
+function checkNewGrid () {
+        if (numOfDiv<0 || numOfDiv > 120 || typeof numOfDiv !== "number"){
+            while (numOfDiv<0 || numOfDiv > 120 || typeof numOfDiv !== "number"){
+                numOfDiv = Number(prompt('It was suppose to be a number between 0 and 120. Pick one!'));
+            }
+        
+            return numOfDiv;    
+        }
+}
 
-getNewGrid();
-checkNewGrid();
+function resetGrid() {
+    skchBox.innerHTML = '';
+    return;
+}
+
+function drawNewGrid() {
+    randomColor = 'black'
+    getNewGrid();
+    checkNewGrid();
+    resetGrid();
+    crGrid(numOfDiv);
+}
+
+function newRandomColor () {
+let r = Math.floor(Math.random() * 256);
+let g = Math.floor(Math.random() * 256);
+let b = Math.floor(Math.random() * 256);
+randomColor = `rgb(${r},${g},${b})`;
+}
+
+function newDrawRndCol() {
+
+    getNewGrid();
+    checkNewGrid();
+    newRandomColor();
+    resetGrid();
+    crGrid(numOfDiv);
 }
 
 document.addEventListener('load', crGrid(16));
 resetBtn.onclick = drawNewGrid;    
+colorBtn.onclick = newDrawRndCol;  
+
 
 
